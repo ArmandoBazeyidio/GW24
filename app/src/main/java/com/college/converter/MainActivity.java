@@ -4,6 +4,7 @@ package com.college.converter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import com.college.converter.databinding.ActivityMainBinding;
 import static android.content.ContentValues.TAG;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i("MainActivity","Entering onCreate");
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater()); // Inflate layout using View Binding
         setContentView(binding.getRoot().getRootView()); // Set the root view of the layout as the content v
@@ -37,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
         binding.convertButton.setOnClickListener(this::convertCurrency);
 
 
+
+        buttonConvert.setOnClickListener( view ->  {
+            convertCurrency(view);
+        } );
+        Log.i("MainActivity","Exiting onCreate");
     }
 
     public void convertCurrency(View view) {
@@ -45,10 +52,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        Log.i("MainActivity","Entering convertCurrency");
         if (!inputAmount.isEmpty()) {
             Float inputAmountDecimal = Float.valueOf(inputAmount);
             Float resultFloat = inputAmountDecimal * CONVERSION_RATE;
             binding.resultId.setText(resultFloat + " Euros"); // Access TextView using View Binding
+
+            resultView.setText( resultFloat + " Euros" );
+            Log.i("MainActivity","Exiting convertCurrency");
         }
     }
 }
