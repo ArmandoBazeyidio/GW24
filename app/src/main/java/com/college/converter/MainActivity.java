@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding variableBinding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i(TAG, "oncreate() - Entry");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -46,11 +45,11 @@ public class MainActivity extends AppCompatActivity {
         buttonConvert.setOnClickListener( view ->  {
             convertCurrency(view);
         } );
-        Log.i(TAG, "oncreate() - Exit");
+
     }
 
     public void convertCurrency(View view) {
-        Log.i(TAG, "convertCurrency() - Entry");
+
 
         EditText inputView = variableBinding.entryId;
 
@@ -65,6 +64,6 @@ public class MainActivity extends AppCompatActivity {
 
             resultView.setText( resultFloat + " Euros" );
         }
-        Log.i(TAG, "convertCurrency() - Exit");
+
     }
 }
