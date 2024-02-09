@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.i("MainActivity","Entering OnCreate method");
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater()); // Inflate layout using View Binding
         setContentView(binding.getRoot().getRootView()); // Set the root view of the layout as the content v
@@ -37,14 +36,13 @@ public class MainActivity extends AppCompatActivity {
         // Set onClickListener using method reference
         binding.convertButton.setOnClickListener(this::convertCurrency);
 
-        Log.i("MainActivity","Exiting OnCreate");
 
     }
 
     public void convertCurrency(View view) {
 
         String inputAmount = binding.entryId.getText().toString(); // Access EditText using View Binding
-        Log.i("MainActivity","Entering convertCurrency");
+
 
 
         if (!inputAmount.isEmpty()) {
@@ -52,6 +50,5 @@ public class MainActivity extends AppCompatActivity {
             Float resultFloat = inputAmountDecimal * CONVERSION_RATE;
             binding.resultId.setText(resultFloat + " Euros"); // Access TextView using View Binding
         }
-        Log.i("MainActivity","Exiting convertCurrency");
     }
 }
