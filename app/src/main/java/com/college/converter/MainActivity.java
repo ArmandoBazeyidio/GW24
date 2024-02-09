@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         buttonConvert.setOnClickListener( view ->  {
             convertCurrency(view);
         } );
+        Log.i("MainActivity","Exiting onCreate");
     }
 
     public void convertCurrency(View view) {
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             Float resultFloat = inputAmountDecimal * CONVERSION_RATE;
 
             resultView.setText( resultFloat + " Euros" );
+            Log.i("MainActivity","Exiting convertCurrency");
         }
     }
 }
